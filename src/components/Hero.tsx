@@ -84,7 +84,7 @@ export const Hero: React.FC = () => {
             >
               Specializing in building robust, performant web applications with{" "}
               <strong className="text-white light:text-[#0D0E11] font-medium">React, Next.js, Node.js, and Express.js</strong>.
-              Applying 7 years of Document Control organizational rigor, precision, and workflow management to deliver clean, scalable, and maintainable software.
+
             </motion.p>
 
             {/* Transferable Skills Quick Chips */}
@@ -102,10 +102,7 @@ export const Hero: React.FC = () => {
                 <Code2 className="w-3.5 h-3.5 text-[#00F299] light:text-[#006B4B]" />
                 <span>Node.js &amp; Express APIs</span>
               </div>
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/[0.04] light:bg-black/[0.04] border border-white/[0.08] light:border-black/[0.08] text-xs text-[#94A3B8] light:text-[#475569]">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#8F7CFF] light:text-[#5B4ACB]" />
-                <span>7 Years Document Control Rigor</span>
-              </div>
+
             </motion.div>
 
             {/* Primary Action Buttons */}

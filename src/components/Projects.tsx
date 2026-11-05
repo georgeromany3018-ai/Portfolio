@@ -4,11 +4,19 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
   ShoppingCart,
+  CheckCircle2,
   Calendar,
+  Layers,
+  ArrowUpRight,
   ExternalLink,
   Code2,
+  Cpu,
   PackageCheck,
+  ListTodo,
+  Tag,
   Star,
+  Check,
+  Plus,
 } from "lucide-react";
 import { cvData } from "@/data/cvData";
 
@@ -137,40 +145,122 @@ export const Projects: React.FC = () => {
               </div>
             </div>
 
-            {/* Card Footer Tech Stack & Links */}
+            {/* Card Footer Tech Stack */}
             <div className="p-6 sm:p-8 pt-0">
               <div className="pt-4 border-t border-white/[0.08] light:border-black/[0.08] flex flex-wrap items-center justify-between gap-3">
                 <div className="flex flex-wrap gap-1.5">
-                  {cvData.projects[0].technologies.map((tech: string, index: number) => (
+                  {cvData.projects[0].technologies.map((tech) => (
                     <span
-                      key={index}
-                      className="px-2 py-1 rounded bg-white/[0.04] border border-white/[0.08] text-[11px] text-[#94A3B8]"
+                      key={tech}
+                      className="text-xs px-2.5 py-1 rounded-md bg-white/[0.04] light:bg-black/[0.04] border border-white/[0.08] light:border-black/[0.08] text-[#94A3B8] light:text-[#475569] font-medium"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
+              </div>
+            </div>
+          </motion.div>
 
-                {/* الروابط الحقيقية لمشروع الـ E-commerce الخاص بك */}
-                <div className="flex items-center gap-3">
-                  <a
-                    href="https://github.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-xs text-[#94A3B8] hover:text-[#00F299] transition-colors"
-                  >
-                    <Code2 className="w-4 h-4" />
-                    <span>Code</span>
-                  </a>
-                  <a
-                    href="https://vercel.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-xs font-medium text-[#00F299] hover:underline transition-all"
-                  >
-                    <span>Live Demo</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
+          {/* Project 2: Todo Management Application */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="group rounded-3xl bg-[#0D0E11] light:bg-[#F8FAFC] border border-[#00F299]/20 light:border-black/[0.08] hover:border-[#8F7CFF]/50 overflow-hidden shadow-xl hover:shadow-[0_0_30px_rgba(143,124,255,0.15)] transition-all duration-300 flex flex-col justify-between"
+          >
+            <div>
+              {/* Visual Interactive Preview */}
+              <div className="relative h-64 sm:h-72 w-full bg-gradient-to-br from-[#161426] via-[#10111E] to-[#0A1112] p-5 flex flex-col justify-between overflow-hidden border-b border-white/[0.08] light:border-black/[0.08]">
+                {/* Visual Top Bar Mockup */}
+                <div className="flex items-center justify-between text-xs text-[#94A3B8] border-b border-white/[0.1] pb-3">
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 rounded-full bg-[#FF5F56]" />
+                    <div className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
+                    <div className="w-3 h-3 rounded-full bg-[#27C93F]" />
+                    <span className="ml-2 font-mono text-[11px] text-[#8F7CFF]">Context API State</span>
+                  </div>
+                  <div className="flex items-center gap-2 px-2.5 py-1 rounded-full bg-white/[0.05] border border-white/[0.1] text-[11px]">
+                    <ListTodo className="w-3 h-3 text-[#8F7CFF]" />
+                    <span>Tasks: 4 Completed</span>
+                  </div>
+                </div>
+
+                {/* Task items list mockup */}
+                <div className="space-y-2 my-auto">
+                  <div className="flex items-center justify-between p-2.5 rounded-xl bg-white/[0.04] border border-white/[0.08] backdrop-blur-md">
+                    <div className="flex items-center gap-2 text-xs text-white">
+                      <div className="w-4 h-4 rounded-md bg-[#00F299]/20 border border-[#00F299] flex items-center justify-center">
+                        <Check className="w-3 h-3 text-[#00F299]" />
+                      </div>
+                      <span className="line-through text-[#617275]">Architect reusable component hierarchy</span>
+                    </div>
+                    <span className="text-[9px] px-1.5 py-0.5 rounded bg-[#00F299]/20 text-[#00F299]">Done</span>
+                  </div>
+
+                  <div className="flex items-center justify-between p-2.5 rounded-xl bg-white/[0.04] border border-white/[0.08] backdrop-blur-md">
+                    <div className="flex items-center gap-2 text-xs text-white">
+                      <div className="w-4 h-4 rounded-md bg-[#8F7CFF]/20 border border-[#8F7CFF] flex items-center justify-center">
+                        <Check className="w-3 h-3 text-[#8F7CFF]" />
+                      </div>
+                      <span>Centralize state with React Context API</span>
+                    </div>
+                    <span className="text-[9px] px-1.5 py-0.5 rounded bg-[#8F7CFF]/20 text-[#8F7CFF]">Active</span>
+                  </div>
+                </div>
+
+                {/* Bottom status */}
+                <div className="flex items-center justify-between text-[10px] font-mono text-[#94A3B8]">
+                  <span>React Hooks (useState, useEffect)</span>
+                  <span className="text-[#8F7CFF]">Atomic Component Design</span>
+                </div>
+              </div>
+
+              {/* Card Body */}
+              <div className="p-6 sm:p-8">
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <span className="text-xs font-mono text-[#8F7CFF] light:text-[#5B4ACB] flex items-center gap-1.5">
+                    <Calendar className="w-3.5 h-3.5" />
+                    {cvData.projects[1].date_range}
+                  </span>
+                  <span className="text-[11px] uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#8F7CFF]/10 text-[#8F7CFF] light:text-[#5B4ACB] font-semibold">
+                    Productivity App
+                  </span>
+                </div>
+
+                <h3 className="text-2xl font-bold text-white light:text-[#0D0E11] mb-3 group-hover:text-[#8F7CFF] light:group-hover:text-[#5B4ACB] transition-colors">
+                  {cvData.projects[1].title}
+                </h3>
+
+                <p className="text-sm text-[#94A3B8] light:text-[#475569] leading-relaxed mb-5">
+                  Interactive productivity application engineered with centralized React Context state management, custom lifecycle hooks, and modular UI structure.
+                </p>
+
+                {/* Key Features Bullet List */}
+                <div className="space-y-2 mb-6">
+                  {cvData.projects[1].details.map((detail, idx) => (
+                    <div key={idx} className="flex items-start gap-2.5 text-xs text-[#94A3B8] light:text-[#475569]">
+                      <PackageCheck className="w-4 h-4 text-[#8F7CFF] light:text-[#5B4ACB] shrink-0 mt-0.5" />
+                      <span>{detail}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Card Footer Tech Stack */}
+            <div className="p-6 sm:p-8 pt-0">
+              <div className="pt-4 border-t border-white/[0.08] light:border-black/[0.08] flex flex-wrap items-center justify-between gap-3">
+                <div className="flex flex-wrap gap-1.5">
+                  {cvData.projects[1].technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="text-xs px-2.5 py-1 rounded-md bg-white/[0.04] light:bg-black/[0.04] border border-white/[0.08] light:border-black/[0.08] text-[#94A3B8] light:text-[#475569] font-medium"
+                    >
+                      {tech}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
@@ -180,3 +270,4 @@ export const Projects: React.FC = () => {
     </section>
   );
 };
+
