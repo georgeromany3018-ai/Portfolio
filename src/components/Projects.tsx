@@ -4,19 +4,11 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
   ShoppingCart,
-  CheckCircle2,
   Calendar,
-  Layers,
-  ArrowUpRight,
   ExternalLink,
   Code2,
-  Cpu,
   PackageCheck,
-  ListTodo,
-  Tag,
   Star,
-  Check,
-  Plus,
 } from "lucide-react";
 import { cvData } from "@/data/cvData";
 
@@ -183,8 +175,6 @@ export const Projects: React.FC = () => {
               </div>
             </div>
           </motion.div>
-
-
         </div>
       </div>
     </section>
