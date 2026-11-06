@@ -1,27 +1,18 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
-  ShoppingCart,
-  CheckCircle2,
   Calendar,
-  Layers,
   ArrowUpRight,
-  ExternalLink,
   Code2,
-  Cpu,
   PackageCheck,
-  ListTodo,
-  Tag,
-  Star,
-  Check,
-  Plus,
 } from "lucide-react";
 import { cvData } from "@/data/cvData";
 
 export const Projects: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<number>(0);
+  const [project1, project2] = cvData.projects;
 
   return (
     <section
@@ -50,7 +41,7 @@ export const Projects: React.FC = () => {
 
         {/* Project Cards Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
-          {/* Project 1: E-commerce Web Application */}
+          {/* Project 1: E-Commerce Client */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -59,58 +50,42 @@ export const Projects: React.FC = () => {
             className="group rounded-3xl bg-[#0D0E11] light:bg-[#F8FAFC] border border-[#00F299]/20 light:border-black/[0.08] hover:border-[#00F299]/50 overflow-hidden shadow-xl hover:shadow-[0_0_30px_rgba(0,242,153,0.15)] transition-all duration-300 flex flex-col justify-between"
           >
             <div>
-              {/* Visual Interactive Preview */}
-              <div className="relative h-64 sm:h-72 w-full bg-gradient-to-br from-[#12241C] via-[#0D1614] to-[#0A1112] p-5 flex flex-col justify-between overflow-hidden border-b border-white/[0.08] light:border-black/[0.08]">
+              {/* Visual Interactive Preview with Screenshot */}
+              <div className="relative h-64 sm:h-72 w-full bg-[#0D1614] overflow-hidden border-b border-white/[0.08] light:border-black/[0.08]">
                 {/* Visual Top Bar Mockup */}
-                <div className="flex items-center justify-between text-xs text-[#94A3B8] border-b border-white/[0.1] pb-3">
+                <div className="absolute top-0 inset-x-0 z-20 flex items-center justify-between px-4 py-2.5 bg-[#0D0E11]/90 backdrop-blur-md border-b border-white/[0.08] light:border-black/[0.08] text-xs text-[#94A3B8]">
                   <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-[#FF5F56]" />
-                    <div className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
-                    <div className="w-3 h-3 rounded-full bg-[#27C93F]" />
-                    <span className="ml-2 font-mono text-[11px] text-[#00F299]">DummyJSON REST API</span>
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
+                    <span className="ml-2 font-mono text-[11px] text-[#00F299] truncate max-w-[160px] sm:max-w-xs">
+                      e-commerce-alpha-three-89.vercel.app
+                    </span>
                   </div>
-                  <div className="flex items-center gap-2 px-2.5 py-1 rounded-full bg-white/[0.05] border border-white/[0.1] text-[11px]">
-                    <ShoppingCart className="w-3 h-3 text-[#00F299]" />
-                    <span>Redux Cart (3 Items)</span>
-                  </div>
-                </div>
-
-                {/* Mockup Product Grid Cards inside */}
-                <div className="grid grid-cols-2 gap-3 my-auto">
-                  <div className="p-3 rounded-xl bg-white/[0.04] border border-white/[0.08] backdrop-blur-md">
-                    <div className="flex items-center justify-between text-[11px] text-[#94A3B8] mb-1">
-                      <span className="font-medium text-white">Smart Gadget</span>
-                      <span className="text-[#00F299] font-mono">$189.99</span>
-                    </div>
-                    <p className="text-[10px] text-[#617275] line-clamp-1 mb-2">High-performance wireless device</p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-[9px] px-1.5 py-0.5 rounded bg-[#00F299]/20 text-[#00F299]">In Stock</span>
-                      <span className="text-[10px] text-white/80 flex items-center gap-1">
-                        <Star className="w-2.5 h-2.5 text-yellow-400 fill-current" /> 4.9
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="p-3 rounded-xl bg-white/[0.04] border border-white/[0.08] backdrop-blur-md">
-                    <div className="flex items-center justify-between text-[11px] text-[#94A3B8] mb-1">
-                      <span className="font-medium text-white">Audio Tech</span>
-                      <span className="text-[#00F299] font-mono">$79.50</span>
-                    </div>
-                    <p className="text-[10px] text-[#617275] line-clamp-1 mb-2">Noise-cancelling headphone</p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-[9px] px-1.5 py-0.5 rounded bg-[#8F7CFF]/20 text-[#8F7CFF]">Wishlist</span>
-                      <span className="text-[10px] text-white/80 flex items-center gap-1">
-                        <Star className="w-2.5 h-2.5 text-yellow-400 fill-current" /> 4.8
-                      </span>
-                    </div>
+                  <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[#00F299]/10 border border-[#00F299]/20 text-[10px] text-[#00F299] light:text-[#006B4B]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#00F299] animate-pulse" />
+                    <span>Live Storefront</span>
                   </div>
                 </div>
 
-                {/* Bottom status */}
-                <div className="flex items-center justify-between text-[10px] font-mono text-[#94A3B8]">
-                  <span>Axios HTTP Handler</span>
-                  <span className="text-[#00F299]">Redux Toolkit Sync</span>
-                </div>
+                {/* Screenshot Display */}
+                <a
+                  href={project1.live_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative block w-full h-full pt-8 cursor-pointer group/preview"
+                  aria-label="View E-Commerce Client live demo"
+                >
+                  <Image
+                    src={project1.image || "/screenshots/HomPage.png"}
+                    alt="E-Commerce Client Homepage"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 600px"
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0D0E11] via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity" />
+                </a>
               </div>
 
               {/* Card Body */}
@@ -118,24 +93,31 @@ export const Projects: React.FC = () => {
                 <div className="flex items-center justify-between gap-2 mb-2">
                   <span className="text-xs font-mono text-[#00F299] light:text-[#006B4B] flex items-center gap-1.5">
                     <Calendar className="w-3.5 h-3.5" />
-                    {cvData.projects[0].date_range}
+                    {project1.date_range}
                   </span>
                   <span className="text-[11px] uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#00F299]/10 text-[#00F299] light:text-[#006B4B] font-semibold">
-                    Full Web App
+                    {project1.badge || "Client Storefront"}
                   </span>
                 </div>
 
                 <h3 className="text-2xl font-bold text-white light:text-[#0D0E11] mb-3 group-hover:text-[#00F299] light:group-hover:text-[#006B4B] transition-colors">
-                  {cvData.projects[0].title}
+                  <a
+                    href={project1.live_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline focus:outline-none"
+                  >
+                    {project1.title}
+                  </a>
                 </h3>
 
                 <p className="text-sm text-[#94A3B8] light:text-[#475569] leading-relaxed mb-5">
-                  Responsive multi-page e-commerce application featuring product catalog discovery, detailed views, cart management, and dashboard navigation.
+                  {project1.description}
                 </p>
 
                 {/* Key Features Bullet List */}
                 <div className="space-y-2 mb-6">
-                  {cvData.projects[0].details.map((detail, idx) => (
+                  {project1.details.map((detail, idx) => (
                     <div key={idx} className="flex items-start gap-2.5 text-xs text-[#94A3B8] light:text-[#475569]">
                       <PackageCheck className="w-4 h-4 text-[#00F299] light:text-[#006B4B] shrink-0 mt-0.5" />
                       <span>{detail}</span>
@@ -145,11 +127,11 @@ export const Projects: React.FC = () => {
               </div>
             </div>
 
-            {/* Card Footer Tech Stack */}
+            {/* Card Footer Tech Stack & Action Links */}
             <div className="p-6 sm:p-8 pt-0">
-              <div className="pt-4 border-t border-white/[0.08] light:border-black/[0.08] flex flex-wrap items-center justify-between gap-3">
+              <div className="pt-4 border-t border-white/[0.08] light:border-black/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div className="flex flex-wrap gap-1.5">
-                  {cvData.projects[0].technologies.map((tech) => (
+                  {project1.technologies.map((tech) => (
                     <span
                       key={tech}
                       className="text-xs px-2.5 py-1 rounded-md bg-white/[0.04] light:bg-black/[0.04] border border-white/[0.08] light:border-black/[0.08] text-[#94A3B8] light:text-[#475569] font-medium"
@@ -158,11 +140,33 @@ export const Projects: React.FC = () => {
                     </span>
                   ))}
                 </div>
+
+                <div className="flex items-center gap-2.5 shrink-0">
+                  <a
+                    href={project1.live_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-[#00F299] light:bg-[#006B4B] text-[#0D0E11] light:text-white hover:opacity-95 shadow-[0_0_15px_rgba(0,242,153,0.25)] hover:shadow-[0_0_20px_rgba(0,242,153,0.4)] transition-all hover:scale-105 active:scale-95"
+                  >
+                    <span>Live Demo</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
+                  <a
+                    href={project1.github_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub Repository"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-white/[0.05] light:bg-black/[0.05] border border-white/[0.1] light:border-black/[0.1] text-white light:text-[#0D0E11] hover:text-[#00F299] light:hover:text-[#006B4B] hover:border-[#00F299]/40 light:hover:border-[#006B4B]/40 transition-all hover:scale-105 active:scale-95"
+                  >
+                    <Code2 className="w-3.5 h-3.5" />
+                    <span>GitHub</span>
+                  </a>
+                </div>
               </div>
             </div>
           </motion.div>
 
-          {/* Project 2: Todo Management Application */}
+          {/* Project 2: E-Commerce Admin Dashboard */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -171,50 +175,41 @@ export const Projects: React.FC = () => {
             className="group rounded-3xl bg-[#0D0E11] light:bg-[#F8FAFC] border border-[#00F299]/20 light:border-black/[0.08] hover:border-[#8F7CFF]/50 overflow-hidden shadow-xl hover:shadow-[0_0_30px_rgba(143,124,255,0.15)] transition-all duration-300 flex flex-col justify-between"
           >
             <div>
-              {/* Visual Interactive Preview */}
-              <div className="relative h-64 sm:h-72 w-full bg-gradient-to-br from-[#161426] via-[#10111E] to-[#0A1112] p-5 flex flex-col justify-between overflow-hidden border-b border-white/[0.08] light:border-black/[0.08]">
+              {/* Visual Interactive Preview with Screenshot */}
+              <div className="relative h-64 sm:h-72 w-full bg-[#10111E] overflow-hidden border-b border-white/[0.08] light:border-black/[0.08]">
                 {/* Visual Top Bar Mockup */}
-                <div className="flex items-center justify-between text-xs text-[#94A3B8] border-b border-white/[0.1] pb-3">
+                <div className="absolute top-0 inset-x-0 z-20 flex items-center justify-between px-4 py-2.5 bg-[#0D0E11]/90 backdrop-blur-md border-b border-white/[0.08] light:border-black/[0.08] text-xs text-[#94A3B8]">
                   <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-[#FF5F56]" />
-                    <div className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
-                    <div className="w-3 h-3 rounded-full bg-[#27C93F]" />
-                    <span className="ml-2 font-mono text-[11px] text-[#8F7CFF]">Context API State</span>
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
+                    <span className="ml-2 font-mono text-[11px] text-[#8F7CFF] truncate max-w-[160px] sm:max-w-xs">
+                      .../dashboard
+                    </span>
                   </div>
-                  <div className="flex items-center gap-2 px-2.5 py-1 rounded-full bg-white/[0.05] border border-white/[0.1] text-[11px]">
-                    <ListTodo className="w-3 h-3 text-[#8F7CFF]" />
-                    <span>Tasks: 4 Completed</span>
-                  </div>
-                </div>
-
-                {/* Task items list mockup */}
-                <div className="space-y-2 my-auto">
-                  <div className="flex items-center justify-between p-2.5 rounded-xl bg-white/[0.04] border border-white/[0.08] backdrop-blur-md">
-                    <div className="flex items-center gap-2 text-xs text-white">
-                      <div className="w-4 h-4 rounded-md bg-[#00F299]/20 border border-[#00F299] flex items-center justify-center">
-                        <Check className="w-3 h-3 text-[#00F299]" />
-                      </div>
-                      <span className="line-through text-[#617275]">Architect reusable component hierarchy</span>
-                    </div>
-                    <span className="text-[9px] px-1.5 py-0.5 rounded bg-[#00F299]/20 text-[#00F299]">Done</span>
-                  </div>
-
-                  <div className="flex items-center justify-between p-2.5 rounded-xl bg-white/[0.04] border border-white/[0.08] backdrop-blur-md">
-                    <div className="flex items-center gap-2 text-xs text-white">
-                      <div className="w-4 h-4 rounded-md bg-[#8F7CFF]/20 border border-[#8F7CFF] flex items-center justify-center">
-                        <Check className="w-3 h-3 text-[#8F7CFF]" />
-                      </div>
-                      <span>Centralize state with React Context API</span>
-                    </div>
-                    <span className="text-[9px] px-1.5 py-0.5 rounded bg-[#8F7CFF]/20 text-[#8F7CFF]">Active</span>
+                  <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[#8F7CFF]/10 border border-[#8F7CFF]/20 text-[10px] text-[#8F7CFF] light:text-[#5B4ACB]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#8F7CFF] animate-pulse" />
+                    <span>Admin Portal</span>
                   </div>
                 </div>
 
-                {/* Bottom status */}
-                <div className="flex items-center justify-between text-[10px] font-mono text-[#94A3B8]">
-                  <span>React Hooks (useState, useEffect)</span>
-                  <span className="text-[#8F7CFF]">Atomic Component Design</span>
-                </div>
+                {/* Screenshot Display */}
+                <a
+                  href={project2.live_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative block w-full h-full pt-8 cursor-pointer group/preview"
+                  aria-label="View E-Commerce Admin Dashboard live demo"
+                >
+                  <Image
+                    src={project2.image || "/screenshots/AdminPage.png"}
+                    alt="E-Commerce Admin Dashboard"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 600px"
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0D0E11] via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity" />
+                </a>
               </div>
 
               {/* Card Body */}
@@ -222,24 +217,31 @@ export const Projects: React.FC = () => {
                 <div className="flex items-center justify-between gap-2 mb-2">
                   <span className="text-xs font-mono text-[#8F7CFF] light:text-[#5B4ACB] flex items-center gap-1.5">
                     <Calendar className="w-3.5 h-3.5" />
-                    {cvData.projects[1].date_range}
+                    {project2.date_range}
                   </span>
                   <span className="text-[11px] uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#8F7CFF]/10 text-[#8F7CFF] light:text-[#5B4ACB] font-semibold">
-                    Productivity App
+                    {project2.badge || "Admin Dashboard"}
                   </span>
                 </div>
 
                 <h3 className="text-2xl font-bold text-white light:text-[#0D0E11] mb-3 group-hover:text-[#8F7CFF] light:group-hover:text-[#5B4ACB] transition-colors">
-                  {cvData.projects[1].title}
+                  <a
+                    href={project2.live_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline focus:outline-none"
+                  >
+                    {project2.title}
+                  </a>
                 </h3>
 
                 <p className="text-sm text-[#94A3B8] light:text-[#475569] leading-relaxed mb-5">
-                  Interactive productivity application engineered with centralized React Context state management, custom lifecycle hooks, and modular UI structure.
+                  {project2.description}
                 </p>
 
                 {/* Key Features Bullet List */}
                 <div className="space-y-2 mb-6">
-                  {cvData.projects[1].details.map((detail, idx) => (
+                  {project2.details.map((detail, idx) => (
                     <div key={idx} className="flex items-start gap-2.5 text-xs text-[#94A3B8] light:text-[#475569]">
                       <PackageCheck className="w-4 h-4 text-[#8F7CFF] light:text-[#5B4ACB] shrink-0 mt-0.5" />
                       <span>{detail}</span>
@@ -249,11 +251,11 @@ export const Projects: React.FC = () => {
               </div>
             </div>
 
-            {/* Card Footer Tech Stack */}
+            {/* Card Footer Tech Stack & Action Links */}
             <div className="p-6 sm:p-8 pt-0">
-              <div className="pt-4 border-t border-white/[0.08] light:border-black/[0.08] flex flex-wrap items-center justify-between gap-3">
+              <div className="pt-4 border-t border-white/[0.08] light:border-black/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div className="flex flex-wrap gap-1.5">
-                  {cvData.projects[1].technologies.map((tech) => (
+                  {project2.technologies.map((tech) => (
                     <span
                       key={tech}
                       className="text-xs px-2.5 py-1 rounded-md bg-white/[0.04] light:bg-black/[0.04] border border-white/[0.08] light:border-black/[0.08] text-[#94A3B8] light:text-[#475569] font-medium"
@@ -261,6 +263,28 @@ export const Projects: React.FC = () => {
                       {tech}
                     </span>
                   ))}
+                </div>
+
+                <div className="flex items-center gap-2.5 shrink-0">
+                  <a
+                    href={project2.live_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-[#8F7CFF] light:bg-[#5B4ACB] text-[#0D0E11] light:text-white hover:opacity-95 shadow-[0_0_15px_rgba(143,124,255,0.25)] hover:shadow-[0_0_20px_rgba(143,124,255,0.4)] transition-all hover:scale-105 active:scale-95"
+                  >
+                    <span>Live Demo</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
+                  <a
+                    href={project2.github_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub Repository"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-white/[0.05] light:bg-black/[0.05] border border-white/[0.1] light:border-black/[0.1] text-white light:text-[#0D0E11] hover:text-[#8F7CFF] light:hover:text-[#5B4ACB] hover:border-[#8F7CFF]/40 light:hover:border-[#5B4ACB]/40 transition-all hover:scale-105 active:scale-95"
+                  >
+                    <Code2 className="w-3.5 h-3.5" />
+                    <span>GitHub</span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -270,4 +294,3 @@ export const Projects: React.FC = () => {
     </section>
   );
 };
-

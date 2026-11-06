@@ -15,9 +15,13 @@ export const Footer: React.FC = () => {
           {/* Brand Info */}
           <div className="md:col-span-6 flex flex-col items-start">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#00F299]/20 to-[#8F7CFF]/20 border border-[#00F299]/30 flex items-center justify-center font-bold text-base text-[#00F299] light:text-[#006B4B]">
-                GR
-              </div>
+               <div className="w-10 h-10 flex items-center justify-center group-hover:scale-105 transition-all duration-200">
+              <img 
+                src="/logo.png" 
+                alt="GR Tech Logo" 
+                className="w-full h-full object-contain"
+              />
+            </div>
               <div>
                 <span className="font-bold text-lg text-white light:text-[#0D0E11] tracking-tight block">
                   George Romany
@@ -28,7 +32,7 @@ export const Footer: React.FC = () => {
               </div>
             </div>
             <p className="text-xs text-[#94A3B8] light:text-[#475569] max-w-sm leading-relaxed mb-6">
-              Engineering responsive, modern web applications with React, Next.js, and Node.js. Combining software engineering with 7 years of Document Control organizational excellence.
+Engineering responsive, modern web applications with React, Next.js, and Node.js. Combining software engineering with 7 years of professional experience, bringing strong organizational skills, attention to detail, and structured workflow management.
             </p>
             <div className="flex items-center gap-2">
               <a

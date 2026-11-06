@@ -76,16 +76,21 @@ export const Hero: React.FC = () => {
             </motion.div>
 
             {/* Engaging Profile Summary */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.7 }}
-              className="text-base sm:text-lg text-[#94A3B8] light:text-[#475569] leading-relaxed max-w-2xl mb-6 font-normal"
-            >
-              Specializing in building robust, performant web applications with{" "}
-              <strong className="text-white light:text-[#0D0E11] font-medium">React, Next.js, Node.js, and Express.js</strong>.
-
-            </motion.p>
+<motion.p
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.5, duration: 0.7 }}
+  className="text-base sm:text-lg text-[#94A3B8] light:text-[#475569] leading-relaxed max-w-2xl mb-6 font-normal"
+>
+  I specialize in designing and developing modern, responsive, and
+  high-performance web applications, combining clean user interfaces
+  with scalable backend solutions. Using{" "}
+  <strong className="text-white light:text-[#0D0E11] font-medium">
+    React, Next.js, Node.js, and Express.js
+  </strong>
+  , I focus on building seamless user experiences, reusable components,
+  efficient application architecture, and reliable API integrations.
+</motion.p>
 
             {/* Transferable Skills Quick Chips */}
             <motion.div
@@ -94,15 +99,38 @@ export const Hero: React.FC = () => {
               transition={{ delay: 0.6, duration: 0.6 }}
               className="flex flex-wrap gap-2.5 mb-8"
             >
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/[0.04] light:bg-black/[0.04] border border-white/[0.08] light:border-black/[0.08] text-xs text-[#94A3B8] light:text-[#475569]">
-                <Layers className="w-3.5 h-3.5 text-[#00F299] light:text-[#006B4B]" />
-                <span>Next.js &amp; React.js</span>
-              </div>
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/[0.04] light:bg-black/[0.04] border border-white/[0.08] light:border-black/[0.08] text-xs text-[#94A3B8] light:text-[#475569]">
-                <Code2 className="w-3.5 h-3.5 text-[#00F299] light:text-[#006B4B]" />
-                <span>Node.js &amp; Express APIs</span>
-              </div>
-
+ <div className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/[0.04] light:bg-black/[0.04] border border-white/[0.08] light:border-black/[0.08] text-xs text-[#94A3B8] light:text-[#475569]">
+  <Layers className="w-3.5 h-3.5 text-[#00F299] light:text-[#006B4B]" />
+  <span>Next.js &amp; React.js</span>
+</div>
+<div className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/[0.04] light:bg-black/[0.04] border border-white/[0.08] light:border-black/[0.08] text-xs text-[#94A3B8] light:text-[#475569]">
+  <Code2 className="w-3.5 h-3.5 text-[#00F299] light:text-[#006B4B]" />
+  <span>JavaScript</span>
+</div>
+<div className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/[0.04] light:bg-black/[0.04] border border-white/[0.08] light:border-black/[0.08] text-xs text-[#94A3B8] light:text-[#475569]">
+  <Code2 className="w-3.5 h-3.5 text-[#00F299] light:text-[#006B4B]" />
+  <span>Node.js &amp; Express.js</span>
+</div>
+<div className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/[0.04] light:bg-black/[0.04] border border-white/[0.08] light:border-black/[0.08] text-xs text-[#94A3B8] light:text-[#475569]">
+  <Code2 className="w-3.5 h-3.5 text-[#00F299] light:text-[#006B4B]" />
+  <span>REST APIs</span>
+</div>
+<div className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/[0.04] light:bg-black/[0.04] border border-white/[0.08] light:border-black/[0.08] text-xs text-[#94A3B8] light:text-[#475569]">
+  <Layers className="w-3.5 h-3.5 text-[#00F299] light:text-[#006B4B]" />
+  <span>Redux Toolkit</span>
+</div>
+<div className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/[0.04] light:bg-black/[0.04] border border-white/[0.08] light:border-black/[0.08] text-xs text-[#94A3B8] light:text-[#475569]">
+  <Code2 className="w-3.5 h-3.5 text-[#00F299] light:text-[#006B4B]" />
+  <span>MongoDB &amp; Mongoose</span>
+</div>
+<div className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/[0.04] light:bg-black/[0.04] border border-white/[0.08] light:border-black/[0.08] text-xs text-[#94A3B8] light:text-[#475569]">
+  <Layers className="w-3.5 h-3.5 text-[#00F299] light:text-[#006B4B]" />
+  <span>Tailwind CSS &amp; Bootstrap</span>
+</div>
+<div className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/[0.04] light:bg-black/[0.04] border border-white/[0.08] light:border-black/[0.08] text-xs text-[#94A3B8] light:text-[#475569]">
+  <Code2 className="w-3.5 h-3.5 text-[#00F299] light:text-[#006B4B]" />
+  <span>Git &amp; GitHub</span>
+</div>
             </motion.div>
 
             {/* Primary Action Buttons */}
@@ -138,6 +166,7 @@ export const Hero: React.FC = () => {
                 <MessageCircle className="w-4 h-4" />
                 <span className="sm:inline">WhatsApp</span>
               </a>
+            
             </motion.div>
           </motion.div>
 

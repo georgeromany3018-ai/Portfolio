@@ -31,6 +31,11 @@ export interface ProjectItem {
   technologies: string[];
   date_range: string;
   details: string[];
+  description?: string;
+  live_url?: string;
+  github_url?: string;
+  image?: string;
+  badge?: string;
 }
 
 export interface CourseItem {
@@ -112,37 +117,49 @@ export const cvData: CVData = {
   ],
   projects: [
     {
-      title: "E-commerce Web Application",
+      title: "E-Commerce Client",
+      description:
+        "A modern e-commerce storefront featuring product browsing, product details, product filtering, and shopping cart functionality.",
       technologies: [
         "React.js",
-        "Redux",
+        "Redux Toolkit",
         "React Router",
-        "Bootstrap",
-        "REST API Integration",
+        "Axios",
+        "REST API",
       ],
       date_range: "10/2026 – 10/2026",
+      badge: "Client Storefront",
+      live_url: "https://e-commerce-alpha-three-89.vercel.app/",
+      github_url: "https://github.com/georgeromany3018-ai/E-commerce",
+      image: "/screenshots/HomPage.png",
       details: [
-        "Developed a responsive e-commerce web application using React.js and React Router for client-side navigation.",
-        "Implemented product listing and product details pages by integrating the DummyJSON API using Axios.",
-        "Managed application state using Redux Toolkit, including cart and wishlist functionality.",
-        "Built a dashboard interface for navigating and managing application features.",
-        "Created responsive and reusable UI components using Bootstrap and React-Bootstrap.",
+        "Implemented dynamic product catalog discovery with category filtering and keyword search using Axios and DummyJSON API.",
+        "Engineered comprehensive product detail pages with real-time stock status, customer ratings, and responsive image galleries.",
+        "Managed global cart and wishlist states with Redux Toolkit for seamless multi-item quantity updates and persistence.",
+        "Structured clean client-side routing with React Router for smooth navigation across storefront pages.",
       ],
     },
     {
-      title: "Todo Management Application",
+      title: "E-Commerce Admin Dashboard",
+      description:
+        "An administrative dashboard for managing e-commerce products, featuring CRUD operations, search, filtering, sorting, and pagination.",
       technologies: [
         "React.js",
-        "Context API",
-        "React Hooks",
-        "State Management",
+        "Redux Toolkit",
+        "React Router",
+        "Axios",
+        "REST API",
       ],
-      date_range: "07/2026 – 07/2026",
+      date_range: "10/2026 – 10/2026",
+      badge: "Admin Dashboard",
+      live_url: "https://e-commerce-alpha-three-89.vercel.app/dashboard",
+      github_url: "https://github.com/georgeromany3018-ai/E-commerce",
+      image: "/screenshots/AdminPage.png",
       details: [
-        "Developed an interactive task management application using React.js.",
-        "Implemented centralized state management using Context API to share application state across components.",
-        "Used React Hooks to manage component state and application behavior.",
-        "Built reusable UI components with a focus on maintainability and component-based architecture.",
+        "Built administrative product management panel supporting full CRUD workflows (create, read, update, delete).",
+        "Implemented multi-field search, category-based filtering, and dynamic column sorting for fast product administration.",
+        "Integrated client and server pagination controls to efficiently handle and display large catalog datasets.",
+        "Designed structured modal forms with real-time input validation for adding and updating catalog items.",
       ],
     },
   ],

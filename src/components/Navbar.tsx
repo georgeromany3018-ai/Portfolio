@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { ThemeToggle } from "./ThemeToggle";
-import { Menu, X, ArrowUpRight, MessageCircle } from "lucide-react";
+import { Menu, X, ArrowUpRight, MessageCircle, Download } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
@@ -56,7 +56,7 @@ export const Navbar: React.FC = () => {
             className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00F299] rounded-lg"
             aria-label="George Romany Portfolio Homepage"
           >
-            {/* 🔽 تم استبدال حاوية النص القديمة باللوجو المحدث 🔽 */}
+            
             <div className="w-10 h-10 flex items-center justify-center group-hover:scale-105 transition-all duration-200">
               <img 
                 src="/logo.png" 
@@ -118,6 +118,15 @@ export const Navbar: React.FC = () => {
               <MessageCircle className="w-4 h-4 fill-current" />
               <span>Let&apos;s Talk</span>
             </a>
+            {/* Download CV Button */}
+<a
+  href="/George.Romany.CV.pdf"
+  download="George_Romany_CV.pdf"
+  className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider border border-white/10 light:border-black/10 text-[#CBD5E1] light:text-[#334155] hover:border-[#00F299]/50 hover:text-[#00F299] light:hover:text-[#006B4B] transition-all hover:bg-white/[0.03] light:hover:bg-black/[0.03]"
+>
+  <Download className="w-4 h-4" />
+  <span>Download CV</span>
+</a>
 
             {/* Mobile Hamburger Menu Button */}
             <button

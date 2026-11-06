@@ -35,9 +35,9 @@ export const About: React.FC = () => {
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white light:text-[#0D0E11]">
             About Me
           </h2>
-          <p className="mt-3 text-base sm:text-lg text-[#94A3B8] light:text-[#475569] max-w-2xl">
-            Software Engineer combining modern web architecture with 7 years of meticulous process rigor.
-          </p>
+<p className="mt-3 text-base sm:text-lg text-[#94A3B8] light:text-[#475569] max-w-2xl">
+  Software Engineer focused on building modern, scalable, and user-friendly web applications.
+</p>
         </div>
 
         {/* Content Grid */}
@@ -91,15 +91,15 @@ export const About: React.FC = () => {
                     </span>
                   </div>
 
-                  <div className="flex items-center justify-between py-2 text-xs">
-                    <span className="text-[#94A3B8] light:text-[#475569] flex items-center gap-1.5">
-                      <FileCheck2 className="w-3.5 h-3.5 text-[#00F299] light:text-[#006B4B]" />
-                      Quality Control
-                    </span>
-                    <span className="text-white light:text-[#0D0E11] font-medium">
-                      7 Years Document Control
-                    </span>
-                  </div>
+<div className="flex items-center justify-between py-2 text-xs">
+  <span className="text-[#94A3B8] light:text-[#475569] flex items-center gap-1.5">
+    <FileCheck2 className="w-3.5 h-3.5 text-[#00F299] light:text-[#006B4B]" />
+    Development Focus
+  </span>
+  <span className="text-white light:text-[#0D0E11] font-medium">
+    Full Stack Web Development
+  </span>
+</div>
                 </div>
               </div>
             </div>
@@ -122,7 +122,7 @@ export const About: React.FC = () => {
               </p>
               <div className="border-t border-white/[0.08] light:border-black/[0.08] pt-4 mt-4">
                 <p className="text-xs sm:text-sm text-[#94A3B8] light:text-[#475569] leading-relaxed">
-                  My 7 years in Document Control have ingrained a deep discipline for workflow management, structural organization, and rigorous quality assurance. In software engineering, this translates into clean, thoroughly-tested, and maintainable systems.
+I focus on building clean, maintainable, and scalable web applications, combining modern frontend technologies with reliable backend solutions. My approach emphasizes code quality, structured development, and creating seamless user experiences.
                 </p>
               </div>
             </div>
@@ -158,11 +158,11 @@ export const About: React.FC = () => {
                   <FileCheck2 className="w-5 h-5 text-[#8F7CFF] light:text-[#5B4ACB]" />
                 </div>
                 <h4 className="text-sm font-semibold text-white light:text-[#0D0E11] mb-1">
-                  7-Year Rigor &amp; QA
-                </h4>
-                <p className="text-xs text-[#94A3B8] light:text-[#475569] leading-relaxed">
-                  Proven track record in document control, systematic versioning, process management, and attention to detail.
-                </p>
+  Structured Development
+</h4>
+<p className="text-xs text-[#94A3B8] light:text-[#475569] leading-relaxed">
+  Strong focus on code quality, organized workflows, maintainable architecture, and attention to detail.
+</p>
               </div>
 
               <div className="p-4 rounded-xl bg-white/[0.03] light:bg-black/[0.02] border border-white/[0.08] light:border-black/[0.08] hover:border-[#00F299]/40 transition-colors">

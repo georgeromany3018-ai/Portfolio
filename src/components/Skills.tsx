@@ -1,6 +1,7 @@
+
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Code,
@@ -12,6 +13,8 @@ import {
   Wrench,
   Sparkles,
   Search,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import { cvData } from "@/data/cvData";
 
@@ -85,6 +88,36 @@ const skillCategoriesMeta: SkillCategoryMeta[] = [
 export const Skills: React.FC = () => {
   const [selectedFilter, setSelectedFilter] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const [selectedCategoryPage, setSelectedCategoryPage] = useState(0);
+
+  const categoriesPerPage = 4;
+  const totalCategoryPages = Math.ceil(
+    skillCategoriesMeta.length / categoriesPerPage
+  );
+
+  const handleCategoryNext = useCallback(() => {
+    setSelectedCategoryPage(
+      (prev) => (prev + 1) % totalCategoryPages
+    );
+  }, [totalCategoryPages]);
+
+  const handleCategoryPrev = useCallback(() => {
+    setSelectedCategoryPage(
+      (prev) => (prev - 1 + totalCategoryPages) % totalCategoryPages
+    );
+  }, [totalCategoryPages]);
+
+  useEffect(() => {
+    if (totalCategoryPages <= 1) return;
+
+    const interval = setInterval(() => {
+      setSelectedCategoryPage(
+        (prev) => (prev + 1) % totalCategoryPages
+      );
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, [totalCategoryPages]);
 
   const filteredCategories = skillCategoriesMeta.filter((cat) => {
     if (selectedFilter !== "all" && cat.key !== selectedFilter) return false;
@@ -97,6 +130,11 @@ export const Skills: React.FC = () => {
     );
     return matchesCat || matchesSkill;
   });
+
+  const visibleCategories = skillCategoriesMeta.slice(
+    selectedCategoryPage * categoriesPerPage,
+    (selectedCategoryPage + 1) * categoriesPerPage
+  );
 
   return (
     <section
@@ -119,47 +157,94 @@ export const Skills: React.FC = () => {
           </p>
         </div>
 
-        {/* Filter Controls & Search */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-10">
-          {/* Category Filter Pills */}
-          <div className="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-none">
-            <button
-              onClick={() => setSelectedFilter("all")}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all ${
-                selectedFilter === "all"
-                  ? "bg-[#00F299] text-[#0D0E11] font-semibold shadow-[0_0_12px_rgba(0,242,153,0.35)]"
-                  : "bg-white/[0.04] light:bg-black/[0.04] text-[#94A3B8] light:text-[#475569] hover:text-white light:hover:text-[#0D0E11]"
-              }`}
-            >
-              All Categories
-            </button>
-            {skillCategoriesMeta.map((cat) => (
-              <button
-                key={cat.key}
-                onClick={() => setSelectedFilter(cat.key)}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all ${
-                  selectedFilter === cat.key
-                    ? "bg-[#00F299] text-[#0D0E11] font-semibold shadow-[0_0_12px_rgba(0,242,153,0.35)]"
-                    : "bg-white/[0.04] light:bg-black/[0.04] text-[#94A3B8] light:text-[#475569] hover:text-white light:hover:text-[#0D0E11]"
-                }`}
-              >
-                {cat.title}
-              </button>
-            ))}
-          </div>
+     
+{/* Filter Controls & Search */}
+<div className="mb-10">
+  <div className="flex flex-col xl:flex-row items-stretch xl:items-center gap-3 p-3 rounded-2xl bg-[#101916]/60 light:bg-white border border-white/[0.08] light:border-black/[0.08] shadow-md backdrop-blur-sm">
 
-          {/* Search Input */}
-          <div className="relative w-full md:w-64">
-            <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-[#94A3B8] light:text-[#475569]" />
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search skills (e.g. Next.js)..."
-              className="w-full pl-9 pr-3 py-1.5 text-xs rounded-xl bg-white/[0.04] light:bg-black/[0.04] border border-white/[0.08] light:border-black/[0.08] text-white light:text-[#0D0E11] placeholder-[#617275] focus:outline-none focus:border-[#00F299] light:focus:border-[#006B4B] transition-colors"
-            />
-          </div>
+    {/* Categories */}
+    <div className="flex items-center gap-2 min-w-0 flex-1">
+
+      {/* All Categories */}
+      <button
+        onClick={() => setSelectedFilter("all")}
+        className={`shrink-0 px-4 py-2.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
+          selectedFilter === "all"
+            ? "bg-[#00F299] text-[#0D0E11] shadow-[0_0_12px_rgba(0,242,153,0.2)]"
+            : "text-[#94A3B8] light:text-[#475569] hover:bg-white/[0.05] light:hover:bg-black/[0.05]"
+        }`}
+      >
+        All Categories
+      </button>
+
+      {/* Category Slider */}
+      <div className="flex items-center gap-1 flex-1 min-w-0">
+
+        <button
+          onClick={handleCategoryPrev}
+          className="shrink-0 w-8 h-8 flex items-center justify-center rounded-lg text-[#94A3B8] light:text-[#475569] hover:bg-white/[0.06] light:hover:bg-black/[0.05] hover:text-[#00F299] transition-all"
+          aria-label="Previous categories"
+        >
+          <ChevronLeft className="w-4 h-4" />
+        </button>
+
+        <div className="flex-1 min-w-0 overflow-hidden">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={selectedCategoryPage}
+              initial={{ opacity: 0, x: 16 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -16 }}
+              transition={{ duration: 0.25 }}
+              className="flex items-center justify-center gap-1.5"
+            >
+              {visibleCategories.map((cat) => (
+                <button
+                  key={cat.key}
+                  onClick={() => setSelectedFilter(cat.key)}
+                  className={`px-3 py-2.5 rounded-xl text-xs font-medium whitespace-nowrap transition-all ${
+                    selectedFilter === cat.key
+                      ? "bg-[#00F299]/15 text-[#00F299] border border-[#00F299]/30"
+                      : "border border-transparent text-[#94A3B8] light:text-[#475569] hover:bg-white/[0.05] light:hover:bg-black/[0.05] hover:text-white light:hover:text-[#0D0E11]"
+                  }`}
+                >
+                  {cat.title}
+                </button>
+              ))}
+            </motion.div>
+          </AnimatePresence>
         </div>
+
+        <button
+          onClick={handleCategoryNext}
+          className="shrink-0 w-8 h-8 flex items-center justify-center rounded-lg text-[#94A3B8] light:text-[#475569] hover:bg-white/[0.06] light:hover:bg-black/[0.05] hover:text-[#00F299] transition-all"
+          aria-label="Next categories"
+        >
+          <ChevronRight className="w-4 h-4" />
+        </button>
+
+      </div>
+    </div>
+
+    {/* Divider */}
+    <div className="hidden xl:block w-px h-9 bg-white/[0.08] light:bg-black/[0.08]" />
+
+    {/* Search */}
+    <div className="relative w-full xl:w-64 shrink-0">
+      <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-[#64748B]" />
+      <input
+        type="text"
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        placeholder="Search skills..."
+        className="w-full pl-9 pr-3 py-2.5 text-xs rounded-xl bg-white/[0.04] light:bg-black/[0.04] border border-white/[0.06] light:border-black/[0.06] text-white light:text-[#0D0E11] placeholder-[#64748B] focus:outline-none focus:border-[#00F299]/50 transition-all"
+      />
+    </div>
+
+  </div>
+</div>
+
+
 
         {/* Skill Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -224,4 +309,3 @@ export const Skills: React.FC = () => {
     </section>
   );
 };
-
